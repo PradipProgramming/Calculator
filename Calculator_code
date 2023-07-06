@@ -1,0 +1,60 @@
+import java.util.Scanner;
+class calculate{
+    double result;
+    public int add(int n1,int n2){
+        return n1+n2;
+    }
+    public int sub(int n1,int n2){
+        return n1-n2;
+    }
+    public int mult(int n1,int n2){
+        return n1*n2;
+    }
+    public double div(int n1,int n2){
+        try{
+           result=n1/n2;
+        }catch(ArithmeticException e){
+            System.out.println("Can not Disible by Zero"+e.getMessage());
+        }
+        return result;
+    }
+    public int mod(int n1,int n2){
+        return n1%n2;
+    }
+}
+class cal1{
+    cal1(){
+        System.out.println("------------------------------------------------");
+        System.out.println("********************MENU************************");
+        System.out.println("Enter your choice for calcualte something. ");
+        System.out.println("------------------------------------------------");
+        Scanner scanner=new Scanner(System.in);
+        calculate obj=new calculate();
+        System.out.println("Enter the first Value:: ");
+        int opp1=scanner.nextInt();
+        System.out.println("Enter the second value:: ");
+        int opp2=scanner.nextInt();
+        System.out.println("Enter the Operator['+','-','*','/','%']");
+        char option=scanner.next().charAt(0);
+        switch(option){
+            case '+':System.out.println("Addition is: "+obj.add(opp1,opp2));
+                     break;
+            case '-':System.out.println("\nSubtract is: "+obj.sub(opp1,opp2));
+                    break;
+            case '*': System.out.println("\nMultyply is: "+obj.mult(opp1,opp2));
+                    break;
+            case '/':System.out.println("\nDivision is: "+obj.div(opp1,opp2));
+                    break;
+            case  '%':System.out.println("\nRemainder is: "+obj.mod(opp1,opp2));
+                    break;
+            default:System.out.println("Invalid Option ! Please Enter valid input");
+        }
+        System.out.println("--------------------------------------------------");
+    }
+}
+public class Calculator1 {
+    public static void main(String[] args){
+        new cal1();
+    }
+}
+
